@@ -1,21 +1,17 @@
 package com.young.springcloud;
 
-import lombok.Data;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @Author LiuYang
- * @Date 2021/3/10 11:26
+ * @Date 2021/3/11 15:20
  */
 @SpringBootApplication
-@EnableEurekaClient
 @EnableDiscoveryClient
-public class PaymentMain8001 {
+public class PaymentMain8004 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain8001.class, args);
+        SpringApplication.run(PaymentMain8004.class, args);
     }
 }
