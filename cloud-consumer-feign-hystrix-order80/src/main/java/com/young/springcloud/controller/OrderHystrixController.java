@@ -1,0 +1,40 @@
+package com.young.springcloud.controller;
+
+import com.young.springcloud.service.PaymentHystrixService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+
+/**
+ * @Author LiuYang
+ * @Date 2021/3/12 16:13
+ */
+@RestController
+@Slf4j
+public class OrderHystrixController {
+
+    @Resource
+    private PaymentHystrixService paymentHystrixService;
+
+    @Value("${server.port}")
+    private String serverPort;
+
+    @GetMapping(value = "/consumer/payment/hystrix/ok/{id}")
+    public String paymentInfo_OK(@PathVariable("id") Integer id) {
+
+        String result = paymentHystrixService.paymentInfo_OK(id);
+        return result;
+    }
+
+
+    @GetMapping(value = "/consumer/payment/hystrix/timeout/{id}")
+    public String paymentInfo_TimeOut(@PathVariable("id") Integer id) {
+
+        String result = paymentHystrixService.paymentInfo_TimeOut(id);
+        return result;
+    }
+}
