@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @author Yang Hao
- * @description
- * @date 2020-09-17 09:11
+ * @author LY
  */
 @RestController
 @Slf4j
@@ -37,5 +35,16 @@ public class PaymentHystrixController {
         return result;
     }
 
-
+    /**
+     * 服务熔断
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("------------result: " + result);
+        return result;
+    }
 }
